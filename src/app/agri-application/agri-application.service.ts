@@ -17,4 +17,9 @@ export class AgriApplicationService {
   getAllAgriApplication(){
     return this.http.get('https://localhost:44353/AgriChemicalApplication');
   }
+
+  // tslint:disable-next-line: typedef
+  getAllAgriApplicationById(Id){
+    return this.http.get('https://localhost:44353/AgriChemicalApplication/' + Id, );
+  }
 }

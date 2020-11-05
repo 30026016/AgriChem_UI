@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgriApplicationService } from '../agri-application/agri-application.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class PlannedApplicationComponent implements OnInit {
 
   agriList;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private agriService: AgriApplicationService) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private agriService: AgriApplicationService, private route: Router) { }
 
   ngOnInit(): void {
     this.GetAgriApplication();
@@ -27,6 +28,10 @@ export class PlannedApplicationComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ViewAgriApplication(id){
+    this.agriService.getAllAgriApplicationById(id).subscribe(data => {
+      localStorage.setItem('agriData', JSON.stringify(data));
+      this.route.navigateByUrl('/view-application');
+    });
   }
 
 }

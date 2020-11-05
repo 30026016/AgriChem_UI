@@ -11,6 +11,7 @@ import { PlannedApplicationComponent } from './planned-application/planned-appli
 import { ReasonComponent } from './reason/reason.component';
 import { RegionComponent } from './region/region.component';
 import { StatusComponent } from './status/status.component';
+import { ViewApplicationComponent } from './view-application/view-application.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path: 'method', component: MethodComponent},
   {path: 'reason', component: ReasonComponent},
   {path: 'status', component: StatusComponent},
-  {path: 'planned-application', component: PlannedApplicationComponent}
+  {path: 'planned-application', component: PlannedApplicationComponent},
+  {path: 'view-application', component: ViewApplicationComponent}
 ];
 
 @NgModule({
