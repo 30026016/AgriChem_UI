@@ -1,72 +1,92 @@
-<header id="header">
-    <h1><strong><a href="#">AgriChemical</a></strong> Application</h1>
-    <nav id="nav">
-        <ul>
-            <li><a href="/agri-application">Agrichemical Application</a></li>
-            <li><a href="/region">Region</a></li>
-            <li><a href="/contractor">Contractor</a></li>
-            <li><a href="/contractmanager">Contract Manager</a></li>
-            <li><a href="/agrichemical">Agrichemical</a></li>
-            <li><a href="/location">Location</a></li>
-            <li><a href="/method">Method</a></li>
-            <li><a href="/reason">Reason</a></li>
-            <li><a href="/status">Status</a></li>
-        </ul>
-    </nav>
-</header>
-<section id="main" class="wrapper">
-    <div class="container">
-        <header class="major special">
-            <h2>Contract Manager</h2>
-            <p>Contract Manager Master</p>
-        </header>
-
-        <section>
-            <form [formGroup]="contractManagerForm" (ngSubmit)="OnSubmit()">
-                <!-- <h2>Region Master</h2> -->
-
-                <div class="row uniform 50%">
-                    <div class="12u$">
-                        <input type="text" formControlName="contractManagerName" id="contractManagerName"
-                            placeholder="Enter contract manager name" />
-                    </div>
-                    <div class="12u$">
-                        <ul class="actions">
-                            <li><input type="submit" value="{{ btnSave }}" class="special" /></li>
-                            <li><input type="reset" value="Cancel" /></li>
-                        </ul>
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            <header id="header">
+                <a href="" class="logo"><strong>AgriChemical</strong> Application</a>
+                <ul class="icons">
+                    <a href="#" class="logo"><strong>Welcome</strong> Admin</a>
+                </ul>
+            </header>
+            <!-- Content -->
+            <section>
+                <!-- Elements -->
+                <h2 id="elements">Contract Manager</h2>
+                <div class="row gtr-200">
+                    <div class="col-12">
+                        <!-- Form -->
+                        <h3>Contract Manager Master</h3>
+                        <form [formGroup]="contractManagerForm" (ngSubmit)="OnSubmit()">
+                            <div class="row gtr-uniform">
+                                <div class="col-12">
+                                    <input type="text" formControlName="contractManagerName" id="contractManagerName"
+                                        required="required" placeholder="Enter contract manager name" />
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" value="{{ btnSave }}"
+                                                [disabled]="!contractManagerForm.valid" class="special" /></li>
+                                        <li><input type="reset" value="Cancel" (click)="OnCancel()" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                        <br>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Contract Manager Name</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cManager of contractManagerList; let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{cManager.contractManagerName}}</td>
+                                        <td><a (click)="editContractManager(cManager.contractManagerId)"><i
+                                                    style="cursor: pointer;" class="fa fa-edit"
+                                                    aria-hidden="true"></i></a></td>
+                                        <td><a (click)="deleteContractManager(cManager.contractManagerId)"><i
+                                                    style="cursor: pointer;" class="fa fa-trash"
+                                                    aria-hidden="true"></i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </form>
-        </section>
 
-        <br>
-        <br>
-        <br>
+            </section>
 
-        <section>
-            <div class="table-wrapper">
-                <table class="alt">
-                    <thead>
-                        <tr>
-                            <th>Sr. No.</th>
-                            <th>Contract Manager Name</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let cManager of contractManagerList; let i = index">
-                            <td>{{i+1}}</td>
-                            <td>{{cManager.contractManagerName}}</td>
-                            <td><a (click)="editContractManager(cManager.contractManagerId)"><i style="cursor: pointer;" class="fa fa-pencil-square-o"
-                                        aria-hidden="true"></i></a></td>
-                            <td><a (click)="deleteContractManager(cManager.contractManagerId)"><i style="cursor: pointer;" class="fa fa-trash"
-                                        aria-hidden="true"></i></a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        </div>
     </div>
-</section>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="agri-application">AgriChemical Aplication</a></li>
+                    <li><a href="planned-application">Planned Application</a></li>
+                    <li><a href="region">Region</a></li>
+                    <li><a href="contractor">Contractor</a></li>
+                    <li><a href="/contractmanager">Contract Manager</a></li>
+                    <li><a href="/agrichemical">Agrichemical</a></li>
+                    <li><a href="/location">Location</a></li>
+                    <li><a href="/method">Method</a></li>
+                    <li><a href="/reason">Reason</a></li>
+                    <li><a href="/status">Status</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

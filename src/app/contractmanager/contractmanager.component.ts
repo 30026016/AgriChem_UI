@@ -71,4 +71,10 @@ export class ContractmanagerComponent implements OnInit {
       this.GetContactManager();
     });
   }
+
+  OnCancel() {
+    this.contractManagerId = '';
+    this.contractManagerForm.reset();
+    this.btnSave = "Save";
+  }
 }

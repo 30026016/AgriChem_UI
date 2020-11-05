@@ -19,24 +19,24 @@ export class MethodComponent implements OnInit {
 
   ngOnInit(): void {
     this.methodForm = this.fb.group({
-      methodName : ['']
+      methodName: ['']
     });
     this.GetMethod();
   }
 
   // tslint:disable-next-line: typedef
-  OnSubmit(){
-    if (this.methodId && this.methodId > 0)
-    {
+  OnSubmit() {
+    if (this.methodId && this.methodId > 0) {
       const methodDataforUpdate = {
         methodId: this.methodId,
-        methodName: this.methodForm.controls.methodName.value };
+        methodName: this.methodForm.controls.methodName.value
+      };
 
       this.methodService.updateMethod(methodDataforUpdate).subscribe(() => {
-          this.btnSave = 'Save';
-          this.GetMethod();
-          this.methodForm.reset();
-        });
+        this.btnSave = 'Save';
+        this.GetMethod();
+        this.methodForm.reset();
+      });
     }
     else {
       this.methodService.saveMethod(this.methodForm.value).subscribe(data => {
@@ -56,7 +56,7 @@ export class MethodComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  editMethod(id){
+  editMethod(id) {
     this.methodService.getMethodById(id).subscribe((data: any) => {
       this.methodId = data.methodId;
       this.btnSave = 'Update';
@@ -65,9 +65,15 @@ export class MethodComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  deleteMethod(id){
+  deleteMethod(id) {
     this.methodService.deleteMethod(id).subscribe(data => {
       this.GetMethod();
     });
+  }
+
+  OnCancel() {
+    this.methodId = '';
+    this.methodForm.reset();
+    this.btnSave = "Save";
   }
 }

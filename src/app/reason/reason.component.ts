@@ -19,24 +19,24 @@ export class ReasonComponent implements OnInit {
 
   ngOnInit(): void {
     this.reasonForm = this.fb.group({
-      reasonName : ['']
+      reasonName: ['']
     });
     this.GetReason();
   }
 
   // tslint:disable-next-line: typedef
-  OnSubmit(){
-    if (this.reasonId && this.reasonId > 0)
-    {
+  OnSubmit() {
+    if (this.reasonId && this.reasonId > 0) {
       const reasonDataforUpdate = {
         reasonId: this.reasonId,
-        reasonName: this.reasonForm.controls.reasonName.value };
+        reasonName: this.reasonForm.controls.reasonName.value
+      };
 
       this.reasonService.updateReason(reasonDataforUpdate).subscribe(() => {
-          this.btnSave = 'Save';
-          this.GetReason();
-          this.reasonForm.reset();
-        });
+        this.btnSave = 'Save';
+        this.GetReason();
+        this.reasonForm.reset();
+      });
     }
     else {
       this.reasonService.saveReason(this.reasonForm.value).subscribe(data => {
@@ -56,7 +56,7 @@ export class ReasonComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  editReason(id){
+  editReason(id) {
     this.reasonService.getReasonById(id).subscribe((data: any) => {
       this.reasonId = data.reasonId;
       this.btnSave = 'Update';
@@ -65,9 +65,15 @@ export class ReasonComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  deleteReason(id){
+  deleteReason(id) {
     this.reasonService.deleteReason(id).subscribe(data => {
       this.GetReason();
     });
+  }
+
+  OnCancel() {
+    this.reasonId = '';
+    this.reasonForm.reset();
+    this.btnSave = "Save";
   }
 }

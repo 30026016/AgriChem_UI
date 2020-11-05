@@ -20,24 +20,24 @@ export class AgrichemicalComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.agrichemicalForm = this.fb.group({
-      agrichemicalName : ['']
+      agrichemicalName: ['']
     });
     this.GetAgrichemical();
   }
 
   // tslint:disable-next-line: typedef
-  OnSubmit(){
-    if (this.agrichemicalId && this.agrichemicalId > 0)
-    {
+  OnSubmit() {
+    if (this.agrichemicalId && this.agrichemicalId > 0) {
       const agrichemicalDataforUpdate = {
-        agrichemicalId: this.agrichemicalId ,
-        agrichemicalName: this.agrichemicalForm.controls.agrichemicalName.value };
+        agrichemicalId: this.agrichemicalId,
+        agrichemicalName: this.agrichemicalForm.controls.agrichemicalName.value
+      };
 
       this.agrichemicalService.updateAgrichemical(agrichemicalDataforUpdate).subscribe(() => {
-          this.btnSave = 'Save';
-          this.GetAgrichemical();
-          this.agrichemicalForm.reset();
-        });
+        this.btnSave = 'Save';
+        this.GetAgrichemical();
+        this.agrichemicalForm.reset();
+      });
     }
     else {
       this.agrichemicalService.saveAgrichemical(this.agrichemicalForm.value).subscribe(data => {
@@ -57,7 +57,7 @@ export class AgrichemicalComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  editAgrichemical(id){
+  editAgrichemical(id) {
     this.agrichemicalService.getAgrichemicalById(id).subscribe((data: any) => {
       this.agrichemicalId = data.agrichemicalId;
       this.btnSave = 'Update';
@@ -66,9 +66,15 @@ export class AgrichemicalComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  deleteAgrichemical(id){
+  deleteAgrichemical(id) {
     this.agrichemicalService.deleteAgrichemical(id).subscribe(data => {
       this.GetAgrichemical();
     });
+  }
+
+  OnCancel() {
+    this.agrichemicalId = '';
+    this.agrichemicalForm.reset();
+    this.btnSave = "Save";
   }
 }

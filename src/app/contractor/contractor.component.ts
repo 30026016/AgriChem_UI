@@ -71,4 +71,10 @@ export class ContractorComponent implements OnInit {
     });
   }
 
+  OnCancel() {
+    this.contractorId = '';
+    this.contractorForm.reset();
+    this.btnSave = "Save";
+  }
+
 }

@@ -20,24 +20,24 @@ export class LocationComponent implements OnInit {
   // tslint:disable-next-line: typedef
   ngOnInit() {
     this.locationForm = this.fb.group({
-      locationName : ['']
+      locationName: ['']
     });
     this.GetLocation();
   }
 
   // tslint:disable-next-line: typedef
-  OnSubmit(){
-    if (this.locationId && this.locationId > 0)
-    {
+  OnSubmit() {
+    if (this.locationId && this.locationId > 0) {
       const locationDataforUpdate = {
-        locationId: this.locationId ,
-        locationName: this.locationForm.controls.locationName.value };
+        locationId: this.locationId,
+        locationName: this.locationForm.controls.locationName.value
+      };
 
       this.locationService.updateLocation(locationDataforUpdate).subscribe(() => {
-          this.btnSave = 'Save';
-          this.GetLocation();
-          this.locationForm.reset();
-        });
+        this.btnSave = 'Save';
+        this.GetLocation();
+        this.locationForm.reset();
+      });
     }
     else {
       this.locationService.saveLocation(this.locationForm.value).subscribe(data => {
@@ -57,7 +57,7 @@ export class LocationComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  editLocation(id){
+  editLocation(id) {
     this.locationService.getLocationById(id).subscribe((data: any) => {
       this.locationId = data.locationId;
       this.btnSave = 'Update';
@@ -66,9 +66,15 @@ export class LocationComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  deleteLocation(id){
+  deleteLocation(id) {
     this.locationService.deleteLocation(id).subscribe(data => {
       this.GetLocation();
     });
+  }
+
+  OnCancel() {
+    this.locationId = '';
+    this.locationForm.reset();
+    this.btnSave = "Save";
   }
 }
