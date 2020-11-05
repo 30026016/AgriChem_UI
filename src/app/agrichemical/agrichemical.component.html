@@ -1,0 +1,72 @@
+<header id="header">
+    <h1><strong><a href="#">AgriChemical</a></strong> Application</h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="/agri-application">Agrichemical Application</a></li>
+            <li><a href="/region">Region</a></li>
+            <li><a href="/contractor">Contractor</a></li>
+            <li><a href="/contractmanager">Contract Manager</a></li>
+            <li><a href="/agrichemical">Agrichemical</a></li>
+            <li><a href="/location">Location</a></li>
+            <li><a href="/method">Method</a></li>
+            <li><a href="/reason">Reason</a></li>
+            <li><a href="/status">Status</a></li>
+        </ul>
+    </nav>
+</header>
+<section id="main" class="wrapper">
+    <div class="container">
+        <header class="major special">
+            <h2>Agrichemical</h2>
+            <p>Agrichemical Master</p>
+        </header>
+
+        <section>
+            <form [formGroup]="agrichemicalForm" (ngSubmit)="OnSubmit()">
+                <!-- <h2>Region Master</h2> -->
+
+                <div class="row uniform 50%">
+                    <div class="12u$">
+                        <input type="text" formControlName="agrichemicalName" id="agrichemicalName"
+                            placeholder="Enter agrichemical name" />
+                    </div>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li><input type="submit" value="{{ btnSave }}" class="special" /></li>
+                            <li><input type="reset" value="Cancel" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <br>
+        <br>
+        <br>
+
+        <section>
+            <div class="table-wrapper">
+                <table class="alt">
+                    <thead>
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Agrichemical Name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let agri of agrichemicalList; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{agri.agriChemicalName}}</td>
+                            <td><a (click)="editAgrichemical(agri.agrichemicalId)"><i style="cursor: pointer;" class="fa fa-pencil-square-o"
+                                        aria-hidden="true"></i></a></td>
+                            <td><a (click)="deleteAgrichemical(agri.agrichemicalId)"><i style="cursor: pointer;" class="fa fa-trash"
+                                        aria-hidden="true"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</section>

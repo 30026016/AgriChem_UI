@@ -1,0 +1,38 @@
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            <header id="header">
+                <a href="" class="logo"><strong>AgriChemical</strong> Application</a>
+            </header>
+            <section>
+                <!-- Elements -->
+                <h2 id="elements">Sign In</h2>
+                <div class="row gtr-200">
+                    <div class="col-12">
+                        <!-- Form -->
+                        <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="OnSubmit()">
+                            <div class="row gtr-uniform">
+                                <div class="col-12">
+                                    <input type="text" formControlName="userName" id="userName" required="required"
+                                        placeholder="User Name" />
+                                </div>
+                                <div class="col-12">
+                                    <input type="password" formControlName="password" id="password" required="required"
+                                        placeholder="Password" />
+                                </div>
+                                <div class="col-12">
+                                    <ul class="actions">
+                                        <li><input type="submit" id="btnLogin" value="Login" class="special" [disabled]="!loginForm.valid" /></li>
+                                        <li><input type="reset" value="Reset" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div id="wrapper">
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <!-- Header -->
+            <header id="header">
+                <a href="" class="logo"><strong>AgriChemical</strong> Application</a>
+                <ul class="icons">
+                    <a href="#" class="logo"><strong>Welcome</strong> Admin</a>
+                </ul>
+            </header>
+            <!-- Content -->
+            <section>
+                <!-- Elements -->
+                <h2 id="elements">Planned Application</h2>
+                <div class="row gtr-200">
+                    <div class="col-12">
+                        <!-- Form -->
+                        <h3>View Planned Application</h3>
+                        <div>
+                            <table>
+                                <tbody *ngFor="let agri of agriList; let i = index">
+                                    <tr>
+                                        <!-- <a (click)="ViewAgriApplication(agri.agriChemAppId)"><i style="cursor: pointer;"
+                                            aria-hidden="true"></i></a> -->
+                                            <td><a (click)="ViewAgriApplication(agri.agriChemAppId)"><i style="cursor: pointer;"
+                                                aria-hidden="true">Planned Agrichemical Application</i></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Region : {{agri.region}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contractor : {{agri.contractor}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Planned Date : {{agri.date | date}} {{agri.fromTime}} to {{agri.toTime}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location : {{agri.location}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <div class="inner">
+            <!-- Menu -->
+            <nav id="menu">
+                <header class="major">
+                    <h2>Menu</h2>
+                </header>
+                <ul>
+                    <li><a href="agri-application">AgriChemical Aplication</a></li>
+                    <li><a href="region">Region</a></li>
+                    <li><a href="contractor">Contractor</a></li>
+                    <li><a href="/contractmanager">Contract Manager</a></li>
+                    <li><a href="/agrichemical">Agrichemical</a></li>
+                    <li><a href="/location">Location</a></li>
+                    <li><a href="/method">Method</a></li>
+                    <li><a href="/reason">Reason</a></li>
+                    <li><a href="/status">Status</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
