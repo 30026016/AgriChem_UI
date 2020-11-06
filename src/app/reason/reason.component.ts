@@ -66,14 +66,17 @@ export class ReasonComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteReason(id) {
-    this.reasonService.deleteReason(id).subscribe(data => {
-      this.GetReason();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.reasonService.deleteReason(id).subscribe(data => {
+        this.GetReason();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel() {
     this.reasonId = '';
     this.reasonForm.reset();
-    this.btnSave = "Save";
+    this.btnSave = 'Save';
   }
 }

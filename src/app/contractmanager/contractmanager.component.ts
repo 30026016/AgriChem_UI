@@ -67,14 +67,17 @@ export class ContractmanagerComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteContractManager(id){
-    this.contractManagerService.deleteCManager(id).subscribe(data => {
-      this.GetContactManager();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.contractManagerService.deleteCManager(id).subscribe(data => {
+        this.GetContactManager();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel() {
     this.contractManagerId = '';
     this.contractManagerForm.reset();
-    this.btnSave = "Save";
+    this.btnSave = 'Save';
   }
 }

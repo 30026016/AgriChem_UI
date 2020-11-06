@@ -20,17 +20,17 @@
                         <form [formGroup]="agrichemicalForm" (ngSubmit)="OnSubmit()">
                             <div class="row gtr-uniform">
                                 <div class="col-4 col-12-small">
-                                    <input type="date" class="form-control" formControlName="date" id="date" value="" placeholder="Date" />
+                                    <input type="date" required="required" class="form-control" formControlName="date" id="date" value="" placeholder="Date" />
                                 </div>
                                 <div class="col-4 col-12-small">
-                                    <input type="time" formControlName="fromtime" id="fromtime" value="" placeholder="From Time" />
+                                    <input type="time" required="required" formControlName="fromtime" id="fromtime" value="" placeholder="From Time" />
                                 </div>
                                 <div class="col-4 col-12-small">
-                                    <input type="time" formControlName="totime" id="totime" value="" placeholder="To Time" />
+                                    <input type="time" required="required" formControlName="totime" id="totime" value="" placeholder="To Time" />
                                 </div>
                                 <div class="col-12">
                                     <div class="select-wrapper">
-                                        <select formControlName="region" id="region">
+                                        <select formControlName="region" id="region" required="required">
                                             <option value="">- Select Region -</option>
                                             <option *ngFor="let region of ddlRegion; let i = index" [value]="ddlRegion[i].regionName">
                                                 {{ddlRegion[i].regionName}}
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="select-wrapper">
-                                        <select formControlName="contractor" id="contractor">
+                                        <select formControlName="contractor" id="contractor" required="required">
                                             <option value="">- Select Contractor -</option>
                                             <option *ngFor="let contractor of ddlContractor; let i = index" [value]="ddlContractor[i].contractorName">
                                                 {{ddlContractor[i].contractorName}}
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="select-wrapper">
-                                        <select formControlName="contractmanager" id="contractmanager">
+                                        <select formControlName="contractmanager" id="contractmanager" required="required">
                                             <option value="">- Select Contract Manager -</option>
                                             <option *ngFor="let contractor of ddlContractManager; let i = index" [value]="ddlContractManager[i].contractManagerName">
                                                 {{ddlContractManager[i].contractManagerName}}
@@ -59,14 +59,14 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" formControlName="comments" id="comments" value="" placeholder="Comments" />
+                                    <input type="text" formControlName="comments" required="required" id="comments" value="" placeholder="Comments" />
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" formControlName="location" id="location" value="" placeholder="Location" />
+                                    <input type="text" formControlName="location" required="required" id="location" value="" placeholder="Location" />
                                 </div>
                                 <div class="col-12">
                                     <div class="select-wrapper">
-                                        <select formControlName="method" id="method">
+                                        <select formControlName="method" id="method" required="required">
                                             <option value="">- Select Method -</option>
                                             <option *ngFor="let method of ddlMethod; let i = index" [value]="ddlMethod[i].methodName">
                                                 {{ddlMethod[i].methodName}}
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="select-wrapper">
-                                        <select formControlName="reason" id="reason">
+                                        <select formControlName="reason" id="reason" required="required">
                                             <option value="">- Select Reason -</option>
                                             <option *ngFor="let reason of ddlReason; let i = index" [value]="ddlReason[i].reasonName">
                                                 {{ddlReason[i].reasonName}}
@@ -85,11 +85,11 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" formControlName="reasoncomments" id="reasoncomments" value="" placeholder="Reason Comments" />
+                                    <input type="text" formControlName="reasoncomments" required="required" id="reasoncomments" value="" placeholder="Reason Comments" />
                                 </div>
                                 <div class="col-4 col-12-small">
                                     <div class="select-wrapper">
-                                        <select formControlName="agrichemical1" id="agrichemical1">
+                                        <select formControlName="agrichemical1" id="agrichemical1" required="required">
                                             <option value="">- Select Agrichemical 1 -</option>
                                             <option *ngFor="let agri of ddlAgrichemical1; let i = index" [value]="ddlAgrichemical1[i].agriChemicalName">
                                                 {{ddlAgrichemical1[i].agriChemicalName}}
@@ -98,11 +98,11 @@
                                     </div>
                                 </div>
                                 <div class="col-4 col-12-small">
-                                    <input type="text" formControlName="agrichemical1volume" id="agrichemical1volume" value="" placeholder="Volume" />
+                                    <input type="text" formControlName="agrichemical1volume" required="required" id="agrichemical1volume" value="" placeholder="Volume" />
                                 </div>
                                 <div class="col-4 col-12-small">
                                     <div class="select-wrapper">
-                                        <select formControlName="agrichemical1unit" id="agrichemical1unit">
+                                        <select formControlName="agrichemical1unit" id="agrichemical1unit" required="required">
                                             <option value="">- Select Unit -</option>
                                             <option *ngFor="let unit1 of ddlUnit1; let i = index" [value]="ddlUnit1[i]">
                                                 {{ddlUnit1[i]}}
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="col-4 col-12-small">
                                     <div class="select-wrapper">
-                                        <select formControlName="agrichemical2" id="agrichemical2">
+                                        <select formControlName="agrichemical2" id="agrichemical2" required="required">
                                             <option value="">- Select Agrichemical 2 -</option>
                                             <option *ngFor="let agri of ddlAgrichemical2; let i = index" [value]="ddlAgrichemical2[i].agriChemicalName">
                                                 {{ddlAgrichemical2[i].agriChemicalName}}
@@ -121,11 +121,11 @@
                                     </div>
                                 </div>
                                 <div class="col-4 col-12-small">
-                                    <input type="text" formControlName="agrichemical2volume" id="agrichemical2volume" value="" placeholder="Volume" />
+                                    <input type="text" formControlName="agrichemical2volume" required="required" id="agrichemical2volume" value="" placeholder="Volume" />
                                 </div>
                                 <div class="col-4 col-12-small">
                                     <div class="select-wrapper">
-                                        <select formControlName="agrichemical2unit" id="agrichemical2unit">
+                                        <select formControlName="agrichemical2unit" id="agrichemical2unit" required="required">
                                             <option value="">- Select Unit -</option>
                                             <option *ngFor="let unit2 of ddlUnit2; let i = index" [value]="ddlUnit2[i]">
                                                 {{ddlUnit2[i]}}
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-4 col-12-small">
                                     <div class="select-wrapper">
-                                        <select formControlName="agrichemical3" id="agrichemical3">
+                                        <select formControlName="agrichemical3" id="agrichemical3" required="required">
                                             <option value="">- Select Agrichemical 3 -</option>
                                             <option *ngFor="let agri of ddlAgrichemical3; let i = index" [value]="ddlAgrichemical3[i].agriChemicalName">
                                                 {{ddlAgrichemical3[i].agriChemicalName}}
@@ -144,11 +144,11 @@
                                     </div>
                                 </div>
                                 <div class="col-4 col-12-small">
-                                    <input type="text" formControlName="agrichemical3volume" id="agrichemical3volume" value="" placeholder="Volume" />
+                                    <input type="text" formControlName="agrichemical3volume" required="required" id="agrichemical3volume" value="" placeholder="Volume" />
                                 </div>
                                 <div class="col-4 col-12-small">
                                     <div class="select-wrapper">
-                                        <select formControlName="agrichemical3unit" id="agrichemical3unit">
+                                        <select formControlName="agrichemical3unit" id="agrichemical3unit" required="required">
                                             <option value="">- Select Unit -</option>
                                             <option *ngFor="let unit3 of ddlUnit3; let i = index" [value]="ddlUnit3[i]">
                                                 {{ddlUnit3[i]}}
@@ -157,11 +157,11 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <input type="text" formControlName="postcomments" id="postcomments" value="" placeholder="Post Comments" />
+                                    <input type="text" formControlName="postcomments" id="postcomments" required="required" value="" placeholder="Post Comments" />
                                 </div>
                                 <div class="col-12">
                                     <div class="select-wrapper">
-                                        <select formControlName="status" id="status">
+                                        <select formControlName="status" id="status" required="required">
                                             <option value="">- Select Status -</option>
                                             <option *ngFor="let status of ddlStatus; let i = index" [value]="ddlStatus[i].statusName">
                                                 {{ddlStatus[i].statusName}}
@@ -171,7 +171,7 @@
                                 </div>
                                 <div class="col-12">
                                     <ul class="actions">
-                                        <li><input type="submit"  value="{{ btnSave }}" [disabled]="!agrichemicalForm.valid" class="special" /></li>
+                                        <li><input type="submit" [disabled]="!agrichemicalForm.valid" value="{{ btnSave }}" [disabled]="!agrichemicalForm.valid" class="special" /></li>
                                         <li><input type="reset" value="Cancel" (click)="OnCancel()" /></li>
                                     </ul>
                                 </div>

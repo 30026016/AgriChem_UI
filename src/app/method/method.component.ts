@@ -66,14 +66,17 @@ export class MethodComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteMethod(id) {
-    this.methodService.deleteMethod(id).subscribe(data => {
-      this.GetMethod();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.methodService.deleteMethod(id).subscribe(data => {
+        this.GetMethod();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel() {
     this.methodId = '';
     this.methodForm.reset();
-    this.btnSave = "Save";
+    this.btnSave = 'Save';
   }
 }

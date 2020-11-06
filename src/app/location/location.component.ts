@@ -67,14 +67,17 @@ export class LocationComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteLocation(id) {
-    this.locationService.deleteLocation(id).subscribe(data => {
-      this.GetLocation();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.locationService.deleteLocation(id).subscribe(data => {
+        this.GetLocation();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel() {
     this.locationId = '';
     this.locationForm.reset();
-    this.btnSave = "Save";
+    this.btnSave = 'Save';
   }
 }

@@ -66,15 +66,18 @@ export class ContractorComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteContractor(id){
-    this.contractorService.deleteContractor(id).subscribe(data => {
-      this.GetContractor();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.contractorService.deleteContractor(id).subscribe(data => {
+        this.GetContractor();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel() {
     this.contractorId = '';
     this.contractorForm.reset();
-    this.btnSave = "Save";
+    this.btnSave = 'Save';
   }
 
 }

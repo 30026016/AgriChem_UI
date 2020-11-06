@@ -69,9 +69,11 @@ export class RegionComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteRegion(id){
-    this.regionService.deleteRegion(id).subscribe(data => {
-      this.GetRegion();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.regionService.deleteRegion(id).subscribe(data => {
+        this.GetRegion();
+      });
+    }
   }
 
   // tslint:disable-next-line: typedef

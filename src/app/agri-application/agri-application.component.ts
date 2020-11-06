@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AgrichemicalService } from '../agrichemical/agrichemical.service';
 import { ContractmanagerService } from '../contractmanager/contractmanager.service';
 import { ContractorService } from '../contractor/contractor.service';
@@ -36,7 +37,7 @@ export class AgriApplicationComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient, private agriService: AgriApplicationService, private regionService: RegionService,
               private contractorService: ContractorService, private contractManagerService: ContractmanagerService,
               private method: MethodService, private reason: ReasonService, private agriChemical: AgrichemicalService,
-              private status: StatusService) { }
+              private status: StatusService, private route: Router) { }
 
   ngOnInit(): void {
     this.agrichemicalForm = this.fb.group({
@@ -127,12 +128,13 @@ export class AgriApplicationComponent implements OnInit {
   OnSubmit(){
     this.agriService.saveAgriChem(this.agrichemicalForm.value).subscribe(data => {
       this.agrichemicalForm.reset();
+      this.route.navigateByUrl('/planned-application');
     });
   }
 
   // tslint:disable-next-line: typedef
   OnCancel(){
-
+    this.route.navigateByUrl('/planned-application');
   }
 
 }

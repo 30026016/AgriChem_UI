@@ -10,7 +10,7 @@ import { StatusService } from './status.service';
 })
 
 export class StatusComponent implements OnInit {
-  
+
   statusForm: FormGroup;
   statusList;
   statusId;
@@ -25,6 +25,7 @@ export class StatusComponent implements OnInit {
     this.GetStatus();
   }
 
+  // tslint:disable-next-line: typedef
   OnSubmit(){
     if (this.statusId && this.statusId > 0)
     {
@@ -48,12 +49,14 @@ export class StatusComponent implements OnInit {
     this.statusForm.reset();
   }
 
+  // tslint:disable-next-line: typedef
   GetStatus() {
     this.statusService.getAllStatus().subscribe(data => {
       this.statusList = data;
     });
   }
 
+  // tslint:disable-next-line: typedef
   editStatus(id){
     this.statusService.getStatusById(id).subscribe((data: any) => {
       this.statusId = data.statusId;
@@ -64,14 +67,17 @@ export class StatusComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteStatus(id){
-    this.statusService.deleteStatus(id).subscribe(data => {
-      this.GetStatus();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.statusService.deleteStatus(id).subscribe(data => {
+        this.GetStatus();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel(){
     this.statusId = '';
-    this.btnSave='Save';
+    this.btnSave = 'Save';
     this.statusForm.reset();
   }
 }

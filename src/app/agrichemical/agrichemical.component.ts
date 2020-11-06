@@ -67,14 +67,17 @@ export class AgrichemicalComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteAgrichemical(id) {
-    this.agrichemicalService.deleteAgrichemical(id).subscribe(data => {
-      this.GetAgrichemical();
-    });
+    if (confirm('Are you sure you want to delete this record?')){
+      this.agrichemicalService.deleteAgrichemical(id).subscribe(data => {
+        this.GetAgrichemical();
+      });
+    }
   }
 
+  // tslint:disable-next-line: typedef
   OnCancel() {
     this.agrichemicalId = '';
     this.agrichemicalForm.reset();
-    this.btnSave = "Save";
+    this.btnSave = 'Save';
   }
 }
