@@ -18,89 +18,97 @@
                         <!-- Form -->
                         <h3>View Planned Application</h3>
                         <div>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>Region : {{region}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Contractor : {{Contractor}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Planned Date : {{PlannedDate}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Location : {{Location}}</td>
-                                    </tr>
+                            <ul style="list-style-type:none;">
+                                <li style="margin-bottom: 10px;">
+                                    Region : {{region}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Contractor : {{Contractor}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Planned Date : {{PlannedDate | date}} - {{fromTime}} to {{toTime}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Location : {{Location}}
+                                </li>
+                                <li>
                                     <br>
-                                    <tr>
-                                        <h2>Planned Application </h2>
-                                    </tr>
+                                </li>
+                                <li>
+                                    <br>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <h4>Planned Application</h4>
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Agrichemical 1 : {{Agrichemical1}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Agrichemical 2 : {{Agrichemical2}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Agrichemical 3 : {{Agrichemical3}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Location : {{Location}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Application Method : {{ApplicationMethod}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Reason for Application : {{ReasonforApplication}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Comments : {{Comments}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    <hr class="major">
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Agrichemical 1 : {{Agrichemical1}}
+                                </li>
 
-                                    <tr>
-                                        <td>Agrichemical 1 : {{Agrichemical1}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Agrichemical 2 : {{Agrichemical2}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Agrichemical 3 : {{Agrichemical3}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Location : {{Location}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Application Method : {{ApplicationMethod}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Reason for Application : {{ReasonforApplication}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Comments : {{Comments}}</td>
-                                    </tr>
+                                <li style="margin-bottom: 10px;">
+                                    Agrichemical 2 : {{Agrichemical2}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Agrichemical 3 : {{Agrichemical3}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Location : {{Location}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Application Method : {{ApplicationMethod}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Reason for Application : {{ReasonforApplication}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Comments : {{Comments}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
                                     <hr class="major">
-                                    <tr>
-                                        <td>Agrichemical 1 : {{Agrichemical1}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Agrichemical 2 : {{Agrichemical2}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Agrichemical 3 : {{Agrichemical3}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Location : {{Location}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Application Method : {{ApplicationMethod}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Reason for Application : {{ReasonforApplication}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Comments : {{Comments}}</td>
-                                    </tr>
-                                    <hr class="major">
-                                    <tr>
-                                        <td>Planned Application Date : {{PlannedDate}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Planned Application Time : {{fromTime}} To {{toTime}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Region : {{region}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Council Appointed Contractor : {{Contractor}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Council Contract Manager : {{ContractManager}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Comments : {{Comments}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                </li>
+
+                                <li style="margin-bottom: 10px;">
+                                    Planned Application Date : {{PlannedDate}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Planned Application Time : {{fromTime}} To {{toTime}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Region : {{region}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Council Appointed Contractor : {{Contractor}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Council Contract Manager : {{ContractManager}}
+                                </li>
+                                <li style="margin-bottom: 10px;">
+                                    Comments : {{Comments}}
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
       userName: [''],
       password: ['']
     });
+    this.GetUser();
   }
 
   // tslint:disable-next-line: typedef
@@ -31,10 +32,11 @@ export class LoginComponent implements OnInit {
     }
     else {
       console.log(this.userList);
-      alert("Your Username or Password is Invalid !");
+      alert('Your Username or Password is Invalid !');
     }
   }
 
+  // tslint:disable-next-line: typedef
   GetUser() {
     this.loginService.getAllUser().subscribe(data => {
       this.userList = data;

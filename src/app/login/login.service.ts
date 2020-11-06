@@ -8,6 +8,7 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  // tslint:disable-next-line: typedef
   getAllUser() {
     return this.http.get('https://localhost:44353/Login');
   }
